@@ -55,9 +55,14 @@
 # particular, your solution must NOT rely on any non-standard Python
 # modules that need to be downloaded and installed separately,
 # because the markers will not have access to such modules.
+import turtle
+import tkinter as tk
+from tkinter import messagebox as mb
+# import tkMessageBox
 from turtle import *
 from math import *
 from random import *
+import time
 
 # Define constant values for setting up the drawing canvas
 cell_size = 100 # pixels (default is 100)
@@ -693,6 +698,54 @@ def callPenupHome(logo):
     home()
     return
 
+# def winnerbox(winner):
+#     # put label on top of page
+#   turtle.title ('winner')
+#   # setup screen size
+#   turtle.setup (1000, 1000, 0, 0)
+#   # move turtle to origin
+#   turtle.penup()
+#   turtle.goto (0, 0)
+#   # set the color to navy
+#   turtle.color ('navy')
+#   # write the message
+#   turtle.write ('winner is ',str(winner), font = ('Times New Roman', 36, 'bold'))
+#   # hide the turtle
+#   turtle.hideturtle()
+#   # persist the drawing
+#   turtle.done()
+#   return
+
+def check_winner(top_token):
+    top_token_values=[]
+    # screen = turtle.Screen()
+    for i in top_token.values():
+    #     top_token_values.append(i)
+    # print(top_token_values)
+        if i != 0:
+            count_of_possible_winner = sum(value == i for value in top_token.values())
+            possible_winner=i
+            if count_of_possible_winner >=4:
+                winner = i
+                print(winner)
+                if winner == 1:
+                    winner_logo = "Mitsibushi"
+                elif winner == 2:
+                    winner_logo = "Suzuki"
+                elif winner == 3:
+                    winner_logo = "Toyota"
+                elif winner == 4:
+                    winner_logo = "Volkswagen"
+                # screen("Winner is ", winner)
+                # mb.showerror("winner is ", winner)
+                mb.showerror("Winner", winner_logo)
+                # tkMessageBox.showinfo("Winner", "The winner is ", winner_logo)
+                time.sleep(15)
+                exit()
+            else:
+                return
+        
+
 def play_game(moves):
     a_y_axis = -300
     b_y_axis = -300
@@ -701,45 +754,66 @@ def play_game(moves):
     e_y_axis = -300
     f_y_axis = -300
     g_y_axis = -300
+    
+    top_token = {'a':0, 'b':0, 'c':0, 'd':0, 'e':0, 'f':0, 'g':0}
+    # print(top_token)
+
     # print(moves)
     for i in moves:
         if str(i[0]) == "a":
             goto(-350, a_y_axis)
             a_y_axis+=100
+            top_token['a']=i[1]
             callPenupHome(i[1])
+            check_winner(top_token)
         
         elif str(i[0]) == "b":
             goto(-250, b_y_axis)
             b_y_axis+=100
-            callPenupHome(i[1])           
+            top_token['b']=i[1]
+            callPenupHome(i[1])
+            check_winner(top_token)           
 
         elif str(i[0]) == "c":
             goto(-150, c_y_axis)
             c_y_axis+=100
-            callPenupHome(i[1])          
+            top_token['c']=i[1]
+            callPenupHome(i[1])
+            check_winner(top_token)          
 
         elif str(i[0]) == "d":
             goto(-50, d_y_axis)
             d_y_axis+=100
-            callPenupHome(i[1])  
+            top_token['d']=i[1]
+            callPenupHome(i[1])
+            check_winner(top_token)  
 
         elif str(i[0]) == "e":
             goto(50, e_y_axis)
             e_y_axis+=100
-            callPenupHome(i[1])         
+            top_token['e']=i[1]
+            callPenupHome(i[1]) 
+            check_winner(top_token)        
             
         elif str(i[0]) == "f":
             goto(150, f_y_axis)
             f_y_axis+=100
+            top_token['f']=i[1]
             callPenupHome(i[1])
+            check_winner(top_token)
 
         elif str(i[0]) == "g":
             goto(250, g_y_axis)
             g_y_axis+=100
-            callPenupHome(i[1])                
+            top_token['g']=i[1]
+            callPenupHome(i[1])
+            check_winner(top_token)       
+
+    # winner = check_winner(top_token)     
+    # if winner !=0:
+    #     print("winner is %d", winner)
+    #     exit()   
     return
-
-
 
         # pygame.draw.rect(screen, BLACK, (0,0, width, SQUARESIZE))
     #     posx = event.pos[0]
