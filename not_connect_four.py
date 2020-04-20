@@ -58,7 +58,6 @@
 from turtle import *
 from math import *
 from random import *
-import time
 
 # Define constant values for setting up the drawing canvas
 cell_size = 100 # pixels (default is 100)
@@ -752,15 +751,12 @@ def callPenupHome(logo):
 
 #for a clear single winner - gold star
 def check_winner(top_token):
-    print("top_token",top_token)
+    top_token_values=[]
     # loop for a single winner - gold star
     for i in top_token.values():#i defines the topmost tokens     
-        print("value is ",i)
         if i != 0:
             count_of_possible_winner = sum(value == i for value in top_token.values())
             possible_winner=i
-            print("value is", i)
-            print("count_possible_winner is", count_of_possible_winner)
             if count_of_possible_winner >=4:
                 winner = i
                 print(winner)
@@ -777,11 +773,9 @@ def check_winner(top_token):
                     goto(550,-50)
                     star(70, "gold")
                #function to stop the game with a single winner
-                time.sleep(15)
                 exit()
-            # else:
-            #     return
-    return
+            else:
+                return
 
 def play_game(moves):
     a_y_axis = -300
@@ -864,93 +858,6 @@ def play_game(moves):
     return
 
 
-
-
-
-# # not working case:['a', 4]
-# ['a', 1]
-# ['c', 2]
-# ['c', 4]
-# ['f', 1]
-# ['g', 4]
-# ['a', 2]
-# ['f', 4]
-# ['c', 1]
-# ['b', 1]
-# ['e', 3]
-# ['g', 4]
-# ['f', 3]
-# ['f', 3]
-# ['a', 3]
-# ['b', 4]
-# ['b', 2]
-# ['a', 4]
-# ['b', 1]
-# ['g', 3]
-# ['d', 4]
-# ['g', 2]
-# ['d', 3]
-# ['a', 1]
-# ['d', 3]
-# ['f', 4]
-# ['e', 3]
-# ['e', 4]
-# ['d', 2]
-# ['d', 3]
-# ['g', 3]
-# ['g', 2]
-# ['e', 2]
-# ['d', 2]
-# ['c', 3]
-# ['b', 1]
-# ['c', 2]
-# ['b', 3]
-# ['c', 3]
-# ['e', 4]
-# ['e', 1]
-# Game over!
-# There were 41 moves generated
-
-
-not_working = [['a', 1],['c', 2],
-['c', 4],
-['f', 1],
-['g', 4],
-['a', 2],
-['f', 4],
-['c', 1],
-['b', 1],
-['e', 3],
-['g', 4],
-['f', 3],
-['f', 3],
-['a', 3],
-['b', 4],
-['b', 2],
-['a', 4],
-['b', 1],
-['g', 3],
-['d', 4],
-['g', 2],
-['d', 3],
-['a', 1],
-['d', 3],
-['f', 4],
-['e', 3],
-['e', 4],
-['d', 2],
-['d', 3],
-['g', 3],
-['g', 2],
-['e', 2],
-['d', 2],
-['c', 3],
-['b', 1],
-['c', 2],
-['b', 3],
-['c', 3],
-['e', 4],['e', 1]]
-
 #
 #--------------------------------------------------------------------#
 
@@ -991,9 +898,7 @@ title("Car company logo (Mitsubishi, Susuki, Toyota and Volkswagen)")
 ### ***** argument.  Your "play_game" function must work for any data
 ### ***** set that can be returned by the "random_game" function.
 #play_game(fixed_game_a0) # <-- use this for code development only
-
 play_game(random_game()) # <-- this will be used for assessment
-# play_game(not_working)
 
 # Exit gracefully
 # ***** Change the default argument to False if you want the
@@ -1003,4 +908,3 @@ release_drawing_canvas()
 
 #
 #--------------------------------------------------------------------#
-
