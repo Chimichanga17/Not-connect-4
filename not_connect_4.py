@@ -478,9 +478,9 @@ def star(height, colour):
 goto(-550,100)
 speed("fastest")
 
-#draw token 1 - mitsubishi
+#draw token 1 - Mitsubushi
         
-def mitsubishi():
+def Mitsubushi():
     color("black","light blue")
     begin_fill()
     square(100)
@@ -518,7 +518,7 @@ def mitsubishi():
     forward(28)
     end_fill()
     
-mitsubishi()
+Mitsubushi()
 
 
 #print the token number and description of token
@@ -527,16 +527,16 @@ goto(-550,50)
 pendown()
 pencolor("black")
 width(0.5)
-write("Token 1:\nMitsubishi", align = 'left', font =('Times New Roman',16,'normal'))
+write("Token 1:\nMitsubushi", align = 'left', font =('Times New Roman',16,'normal'))
 
-#define token 2 - suzuki
+#define token 2 - Suzuki
 
 penup()
 home()
 goto(-550,-195)#position of token 2
 pendown()
 
-def suzuki():
+def Suzuki():
     color("black","yellow")
     begin_fill()
     square(100)
@@ -566,7 +566,7 @@ def suzuki():
     right(90)
     forward(35)
      
-suzuki()
+Suzuki()
     
 #print the token number and description of token
 penup()
@@ -574,7 +574,7 @@ goto(-550,-250)
 pendown()
 pencolor("black")
 width(0.5)
-write("Token 2:\nSusuki", align = 'left', font =('Times New Roman',16,'normal'))
+write("Token 2:\nSuzuki", align = 'left', font =('Times New Roman',16,'normal'))
 
 #define token 3 - toyota
 
@@ -735,9 +735,9 @@ write("Token 4:\nVolkswagen", align = 'left', font =('Times New Roman',16,'norma
 def callToken(token):
     # print(token)
     if(token==1):
-        mitsubishi()
+        Mitsubushi()
     elif(token==2):
-        suzuki()
+        Suzuki()
     elif(token==3):
         toyota()
     elif(token==4):
@@ -867,89 +867,7 @@ def play_game(moves):
 
 
 
-# # not working case:['a', 4]
-# ['a', 1]
-# ['c', 2]
-# ['c', 4]
-# ['f', 1]
-# ['g', 4]
-# ['a', 2]
-# ['f', 4]
-# ['c', 1]
-# ['b', 1]
-# ['e', 3]
-# ['g', 4]
-# ['f', 3]
-# ['f', 3]
-# ['a', 3]
-# ['b', 4]
-# ['b', 2]
-# ['a', 4]
-# ['b', 1]
-# ['g', 3]
-# ['d', 4]
-# ['g', 2]
-# ['d', 3]
-# ['a', 1]
-# ['d', 3]
-# ['f', 4]
-# ['e', 3]
-# ['e', 4]
-# ['d', 2]
-# ['d', 3]
-# ['g', 3]
-# ['g', 2]
-# ['e', 2]
-# ['d', 2]
-# ['c', 3]
-# ['b', 1]
-# ['c', 2]
-# ['b', 3]
-# ['c', 3]
-# ['e', 4]
-# ['e', 1]
-# Game over!
-# There were 41 moves generated
 
-
-not_working = [['a', 1],['c', 2],
-['c', 4],
-['f', 1],
-['g', 4],
-['a', 2],
-['f', 4],
-['c', 1],
-['b', 1],
-['e', 3],
-['g', 4],
-['f', 3],
-['f', 3],
-['a', 3],
-['b', 4],
-['b', 2],
-['a', 4],
-['b', 1],
-['g', 3],
-['d', 4],
-['g', 2],
-['d', 3],
-['a', 1],
-['d', 3],
-['f', 4],
-['e', 3],
-['e', 4],
-['d', 2],
-['d', 3],
-['g', 3],
-['g', 2],
-['e', 2],
-['d', 2],
-['c', 3],
-['b', 1],
-['c', 2],
-['b', 3],
-['c', 3],
-['e', 4],['e', 1]]
 
 #
 #--------------------------------------------------------------------#
@@ -982,7 +900,7 @@ tracer(True)
 # Give the drawing canvas a title
 # ***** Replace this title with a description of your solution's
 # ***** theme and its tokens
-title("Car company logo (Mitsubishi, Susuki, Toyota and Volkswagen)")
+title("Car company logo (Mitsubushi, Suzuki, Toyota and Volkswagen)")
 
 ### Call the student's function to play the game
 ### ***** While developing your program you can call the "play_game"
